@@ -10,74 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        ocean: {
-                            50: '#e0f2fe',
-                            100: '#bae6fd',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            800: '#075985',
-                            900: '#0c4a6e',
-                            950: '#050811',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Custom glassmorphism & background enhancements */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #030712;
-            color: #f8fafc;
-            overflow-x: hidden;
-        }
-        .glass-card {
-            background: rgba(15, 23, 42, 0.65);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(56, 189, 248, 0.15);
-            box-shadow: 0 20px 40px -15px rgba(2, 132, 199, 0.15);
-        }
-        .glass-nav {
-            background: rgba(3, 7, 18, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(56, 189, 248, 0.1);
-        }
-        .ocean-gradient-text {
-            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 50%, #60a5fa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .ocean-glow {
-            box-shadow: 0 0 25px -5px rgba(14, 165, 233, 0.35);
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #030712;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #0ea5e9;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #38bdf8;
-        }
-    </style>
+    <!-- Custom JavaScript (Tailwind config + tab switching) -->
+    <script src="script.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen relative selection:bg-cyan-500 selection:text-white">
 
@@ -525,36 +461,5 @@
 
     </div>
 
-    <!-- Tab Switching JavaScript -->
-    <script>
-        function switchTab(tabId) {
-            // Hide all tab contents
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(el => el.classList.add('hidden'));
-
-            // Remove active styles from all buttons
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-cyan-500/20', 'text-cyan-300', 'border', 'border-cyan-500/40', 'shadow-md');
-                btn.classList.add('text-slate-400', 'hover:text-cyan-300', 'hover:bg-slate-900/50');
-            });
-
-            // Show selected tab content
-            const activeContent = document.getElementById('tab-' + tabId);
-            if (activeContent) {
-                activeContent.classList.remove('hidden');
-            }
-
-            // Highlight active button
-            const activeButton = document.getElementById('btn-' + tabId);
-            if (activeButton) {
-                activeButton.classList.remove('text-slate-400', 'hover:text-cyan-300', 'hover:bg-slate-900/50');
-                activeButton.classList.add('bg-cyan-500/20', 'text-cyan-300', 'border', 'border-cyan-500/40', 'shadow-md');
-            }
-
-            // Scroll slightly to top of content on mobile
-            window.scrollTo({ top: 250, behavior: 'smooth' });
-        }
-    </script>
 </body>
 </html>
